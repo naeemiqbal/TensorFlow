@@ -1,0 +1,23 @@
+# Ignore model files
+*.h5
+*.keras
+*.ckpt
+*.pb
+
+# Ignore numpy data files
+*.npy
+*.npz
+
+# Ignore dataset folders
+/data/
+/datasets/
+/__pycache__/
+
+# Ignore other large files
+*.zip
+*.tar
+*.tar.gz
+*.csv
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
