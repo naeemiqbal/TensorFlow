@@ -2,6 +2,13 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt 
+
+import logging
+
+# Create and configure logger
+logging.basicConfig(filename="number.log", format='%(asctime)s %(message)s', filemode='a')
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 """
 3a 7/10  [0 1 2 3 4 6 7]
 2  0/10
@@ -10,15 +17,14 @@ import matplotlib.pyplot as plt
 3ce50 7/10 [1 2 3 4  5 6 9]
 """
 
-model = tf.keras.models.load_model('Bism3ce50.keras')
+pathName='../models/DigitClassifier.keras'
+model = tf.keras.models.load_model(pathName)
 print("No image inverting applied.")
 corr=0
 for i in range(10):
-    fil=f'../data/numNMI/test{i}.png'
- #   fil=f'../data/numNMI/s{i}.png'  
+    fil=f'../data/numNMI/s{i}.png'  
     img = Image.open(fil).convert('L').resize((28, 28))
-    img_array = (np.array(img) / 255.0)
-    img_array = img_array.reshape(1, 28, 28)  # Add batch 
+    img_array = (np.array(img) / 255.0).reshape(1, 784)  # Flatten for model
     pred = model.predict(img_array)
     predicted_class = np.argmax(pred)
     print(f"Input {i} , Predicted digit:", predicted_class) 
@@ -34,4 +40,5 @@ for i in range(10):
         plt.title(f"Correct")
 #plt.tight_layout()    
 plt.show()
-print(f"Accuracy: {corr}/10 = {corr*10}%")
+print(f"Accuracy: {corr}/10 = {corr*10}%   Using model {pathName}" )
+logger.info( f"Model {pathName}  Accuracy: {corr}/10 = {corr*10}%   " )
