@@ -47,4 +47,4 @@ model.add(Activation('softmax'))
 # Compile and train
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 model.fit(x_train, y_train, epochs=10, batch_size=128)
-model.save('../models/Number3.keras')
+model.save('../models/NumberL20b.keras')

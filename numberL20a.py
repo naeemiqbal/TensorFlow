@@ -57,7 +57,7 @@ r = model.evaluate(x_test, y_test)
 print("Test loss:", r[0])
 print("Test accuracy:", r[1])
 # Save the model
-model.save('Bism3e25.keras')
+model.save('../models/Bism3e25.keras')
 
 # ...existing code...
 

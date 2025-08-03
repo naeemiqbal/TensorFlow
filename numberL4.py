@@ -48,7 +48,7 @@ probability_model(x_test[:5])
 
 
 
-model.save('Bism-tf.keras')
+model.save('../models/NumberL4.keras')
 
 # Load the model
 

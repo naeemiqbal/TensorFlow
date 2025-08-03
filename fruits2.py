@@ -107,4 +107,4 @@ model.fit (train_generator,
               steps_per_epoch=train_generator.n // train_generator.batch_size,
                 validation_steps=valid_generator.n // valid_generator.batch_size,
                 epochs=25)
-model.save('fruits2_model.keras')
+model.save('../models/fruits2_model.keras')

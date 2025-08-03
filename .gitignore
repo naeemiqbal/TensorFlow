@@ -7,6 +7,7 @@
 # Ignore numpy data files
 *.npy
 *.npz
+*.log
 
 # Ignore dataset folders
 /data/
